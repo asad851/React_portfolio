@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import linkedin from '../assets/linkedin.svg'
 
 function NavBar() {
   return (
@@ -23,10 +23,11 @@ function NavBar() {
           </Nav>
           <span className='nabar-text'>
             <div className='social-icons'>
-              <a href=""><img src="" alt="" target="_blank" /></a>
+              <a href=""><img className=''  alt="" target="_blank" /></a>
               <a href=""><img src="" alt="" target="_blank" /></a>
               <a href=""><img src="" alt="" target="_blank" /></a>
             </div>
+            <button className='vvd' onClick={()=>console.log('connect')}>Let's Connect</button>
           </span>
         </Navbar.Collapse>
       </Container>
