@@ -5,7 +5,7 @@ import Logo from '../assets/images/Asad Siddiqui.svg';
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import linkedin from "../assets/images/nav-icon1.svg"
-
+import github from '../assets/images/icons8-github.svg'
 function NavBar() {
   const [activeLink,setActiveLink] = useState('Home')
   const [scrolled,setScrolled]=useState(false)
@@ -29,7 +29,7 @@ function NavBar() {
     <Navbar expand="lg" className={scrolled?"scrolled":""} >
       <Container>
         <Navbar.Brand href="#home" className='me-auto'>
-          <img src={Logo} class="logo" alt="LOGO"  />
+          <img src={Logo}  alt="LOGO"  />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" >
           <span className='navbar-toggler-icon'></span>
@@ -44,8 +44,8 @@ function NavBar() {
           </Nav>
           <span className='navbar-text'>
             <div className='social-icon'>
-              <a href=""><img className='' src={linkedin}  alt="" target="_blank" /></a>
-              <a href=""><img src="" alt="" target="_blank" /></a>
+              <a href="https://www.linkedin.com/in/asad-ahmed-siddiqui-7b875977?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BzHBCHLxeSFSXQgd1%2BsEs4Q%3D%3D" target="_blank"><img className='' src={linkedin}  alt=""  /></a>
+              <a href="https://github.com/asad851" target="_blank"><img src={github} alt=""  /></a>
               <a href=""><img src="" alt="" target="_blank" /></a>
             </div>
             <button className='vvd' onClick={()=>console.log('connect')}>Let's Connect</button>

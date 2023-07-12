@@ -148,6 +148,7 @@ p, a, li, button, ul {
   }
   .social-icon a img {
       width: 40%;
+      object-fit: cover;
       z-index: 1;
       transition: 0.3s ease-in-out;
   }
