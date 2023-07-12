@@ -24,7 +24,7 @@ function NavBar() {
   }, [])
   
   return (
-    <Navbar expand="lg" >
+    <Navbar expand="lg" className={scrolled?"scrolled":""} >
       <Container>
         <Navbar.Brand href="#home">
           <img src="" alt="LOGO" />
