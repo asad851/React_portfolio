@@ -34,10 +34,10 @@ function NavBar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home"    className={activeLink===''?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`e.target.innerHTML`)}>Home</Nav.Link>
-            <Nav.Link href="#skills"  className={activeLink===''?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`e.target.innerHTML`)}>Skills</Nav.Link>
-            <Nav.Link href="#project" className={activeLink===''?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`e.target.innerHTML`)}>Projects</Nav.Link>
-            <Nav.Link href="#contact" className={activeLink===''?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`e.target.innerHTML`)}>Contact me</Nav.Link>
+            <Nav.Link href="#home"    className={activeLink==='Home'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Home`)}>Home</Nav.Link>
+            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Skills`)}>Skills</Nav.Link>
+            <Nav.Link href="#project" className={activeLink==='Projects'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Projects`)}>Projects</Nav.Link>
+            <Nav.Link href="#contact" className={activeLink==='Contact'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Contact`)}>Contact me</Nav.Link>
             
           </Nav>
           <span className='nabar-text'>
