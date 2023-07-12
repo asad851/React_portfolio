@@ -1,8 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Logo from '../assets/images/Logo.gif';
+import Logo from '../assets/images/Asad Siddiqui.svg';
 import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import linkedin from "../assets/images/nav-icon1.svg"
 
 function NavBar() {
   const [activeLink,setActiveLink] = useState('Home')
@@ -26,23 +28,23 @@ function NavBar() {
   return (
     <Navbar expand="lg" className={scrolled?"scrolled":""} >
       <Container>
-        <Navbar.Brand href="#home">
-          <img src={Logo} alt="LOGO" height={150} />
+        <Navbar.Brand href="#home" className='me-auto'>
+          <img src={Logo} class="logo" alt="LOGO"  />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" >
-          <span className='navbar-toggle-icon'></span>
+          <span className='navbar-toggler-icon'></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home"    className={activeLink==='Home'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Home`)}>Home</Nav.Link>
-            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Skills`)}>Skills</Nav.Link>
-            <Nav.Link href="#project" className={activeLink==='Projects'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Projects`)}>Projects</Nav.Link>
-            <Nav.Link href="#contact" className={activeLink==='Contact'?'active-navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Contact`)}>Contact me</Nav.Link>
+          <Nav className="ms-auto">
+            <Nav.Link href="#home"    className={activeLink==='Home'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Home`)}>Home</Nav.Link>
+            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Skills`)}>Skills</Nav.Link>
+            <Nav.Link href="#project" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Projects`)}>Projects</Nav.Link>
+            <Nav.Link href="#contact" className={activeLink==='Contact'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Contact`)}>Contact me</Nav.Link>
             
           </Nav>
-          <span className='nabar-text'>
-            <div className='social-icons'>
-              <a href=""><img className=''  alt="" target="_blank" /></a>
+          <span className='navbar-text'>
+            <div className='social-icon'>
+              <a href=""><img className='' src={linkedin}  alt="" target="_blank" /></a>
               <a href=""><img src="" alt="" target="_blank" /></a>
               <a href=""><img src="" alt="" target="_blank" /></a>
             </div>
