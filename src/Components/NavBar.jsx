@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// import linkedin from '../assets/linkedin.svg';
+import Logo from '../assets/images/Logo.gif';
 import { useEffect, useState } from 'react';
 
 function NavBar() {
@@ -27,7 +27,7 @@ function NavBar() {
     <Navbar expand="lg" className={scrolled?"scrolled":""} >
       <Container>
         <Navbar.Brand href="#home">
-          <img src="" alt="LOGO" />
+          <img src={Logo} alt="LOGO" height={150} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" >
           <span className='navbar-toggle-icon'></span>
