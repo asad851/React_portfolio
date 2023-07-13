@@ -29,7 +29,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className={scrolled?"scrolled":""} >
       <Container>
-        <Navbar.Brand href="#home" className='me-auto'>
+        <Navbar.Brand href="#home" className=''>
           <img src={Logo}  alt="LOGO"  />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" >
