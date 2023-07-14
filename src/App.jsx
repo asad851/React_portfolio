@@ -1,9 +1,13 @@
 import React from 'react'
 import NavBar from './Components/NavBar'
+import HeroBanner from './Components/HeroBanner'
 
 function App() {
   return (
-    <div><NavBar/></div>
+    <>
+    <NavBar/>
+    <HeroBanner/>
+    </>
   )
 }
 

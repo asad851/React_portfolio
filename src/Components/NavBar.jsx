@@ -12,11 +12,12 @@ function NavBar() {
   const [scrolled,setScrolled]=useState(false)
   useEffect(() => {
    const scrollFunc = () =>{
-    if(window.screenY>50){
+    if(window.scrollY > 50){
       setScrolled(true)
     }else{
       setScrolled(false)
     }
+    
   
    }
    window.addEventListener('scroll',scrollFunc);
@@ -29,7 +30,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className={scrolled?"scrolled":""} >
       <Container>
-        <Navbar.Brand href="#home" className=''>
+        <Navbar.Brand href="#home" >
           <img src={Logo}  alt="LOGO"  />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" >
@@ -45,9 +46,9 @@ function NavBar() {
           </Nav>
           <span className='navbar-text'>
             <div className='social-icon'>
-              <a href="https://www.linkedin.com/in/asad-ahmed-siddiqui-7b875977?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BzHBCHLxeSFSXQgd1%2BsEs4Q%3D%3D" target="_blank"><img className='' src={linkedin}  alt=""  /></a>
+              <a href="https://www.linkedin.com/in/asad-ahmed-siddiqui-7b875977?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BzHBCHLxeSFSXQgd1%2BsEs4Q%3D%3D" target="_blank"><img src={linkedin}  alt=""  /></a>
               <a href="https://github.com/asad851" target="_blank"><img src={github} alt=""  /></a>
-              <a href=""><img src={insta} alt="" target="_blank" /></a>
+              <a href="https://www.instagram.com/asad_saiyan/?hl=en" target='_blank'><img src={insta} alt=""  /></a>
             </div>
             <button className='vvd' onClick={()=>console.log('connect')}>Let's Connect</button>
           </span>

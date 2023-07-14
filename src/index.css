@@ -81,7 +81,8 @@ p, a, li, button, ul {
   }
   /************ Navbar Css ************/
   nav.navbar {
-    padding: 18px 0;
+    padding-bottom: 18px;
+    padding-top:0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -89,18 +90,18 @@ p, a, li, button, ul {
     transition:  0.32s ease-in-out;
   }
   nav.navbar.scrolled {
-    padding: 0px 0;
+    padding: 0;
     background-color: #121212;
   }
   nav.navbar a.navbar-brand {
       width: 9%;
   }
   nav.navbar a.navbar-brand img {
-      height:150px;
+      height:120px;
       width:250px;
       object-fit: cover;
       @media(max-width:768px){
-        height:100px;
+        height:95px;
         width:200px;
       }
   }
@@ -211,6 +212,7 @@ p, a, li, button, ul {
       height: 100%;
       position: absolute;
   }
+
   nav.navbar .navbar-toggler:active,
   nav.navbar .navbar-toggler:focus {
       outline: none;
@@ -256,4 +258,95 @@ p, a, li, button, ul {
   nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
       border-color: transparent;
   }
+  #basic-navbar-nav{
+    @media(max-width:991px){
+        /* background: #adadad; */
+        border-radius: 12px;
+        padding: 20px 10px;
+        background-image: url('./assets/images/banner-bg.png');
+        box-shadow: 1px 1px 18px -7px rgba(170, 54, 124, 0.5);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+  }
+
+  /* Hero Banner */
  
+  .banner {
+    margin-top: 0;
+    padding: 260px 0 100px 0;
+    background-image: url('./assets/images/banner-bg.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .banner .tagline {
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 8px 10px;
+    background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+  .banner h1 {
+    font-size: 65px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    margin-bottom: 20px;
+    display: block;
+    @media(max-width:768px){
+      font-size: 50px;
+      font-weight: 600;
+    }
+  }
+  .baner .ROW{
+    @media(max-width:991px){
+        flex-direction: column;
+    }
+  }
+  .banner p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    width: 96%;
+  }
+  .banner button {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 60px;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+  }
+  .banner button svg {
+    font-size: 25px;
+    margin-left: 10px;
+    transition: 0.3s ease-in-out;
+    line-height: 1;
+  }
+  .banner button:hover svg {
+    margin-left: 25px;
+  }
+  .banner img {
+    animation: updown 3s linear infinite;
+  }
+  @keyframes updown {
+      0% {
+          transform: translateY(-20px);
+      }
+      50% {
+          transform: translateY(20px);
+      }
+      100% {
+          transform: translateY(-20px);
+      }
+  }
+  .txt-rotate > .wrap {
+    border-right: 0.08em solid #666;
+  }
