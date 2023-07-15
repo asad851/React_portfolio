@@ -7,9 +7,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import linkedin from "../assets/images/nav-icon1.svg"
 import insta from "../assets/images/nav-icon3.svg"
 import github from '../assets/images/icons8-github.svg'
+import { useRef } from 'react';
 function NavBar() {
   const [activeLink,setActiveLink] = useState('Home')
   const [scrolled,setScrolled]=useState(false)
+  const [show,setShow] =useState('')
+  const navrRef =useRef(null)
+  const buttonRef = useRef(null)
+  const collapseDrawer = () => {
+    
+    navrRef.current.classList.remove('show')
+    // navrRef.current.classList.add('show')
+    
+  }
+  const toggleButton = () => {
+    navrRef.current.classList.add('lodu')
+    console.log('click')
+    // navrRef.current.classList.remove('collpase')
+
+  }
+  
   useEffect(() => {
    const scrollFunc = () =>{
     if(window.scrollY > 50){
@@ -33,15 +50,15 @@ function NavBar() {
         <Navbar.Brand href="#home" >
           <img src={Logo}  alt="LOGO"  />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" >
+        <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={()=>toggleButton()}>
           <span className='navbar-toggler-icon'></span>
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav"  ref={navrRef}>
           <Nav className="ms-auto">
-            <Nav.Link href="#home"    className={activeLink==='Home'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Home`)}>Home</Nav.Link>
-            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Skills`)}>Skills</Nav.Link>
-            <Nav.Link href="#project" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Projects`)}>Projects</Nav.Link>
-            <Nav.Link href="#contact" className={activeLink==='Contact'?'active navbar-link':'navbar-link'} onClick={(e)=>setActiveLink(`Contact`)}>Contact me</Nav.Link>
+            <Nav.Link href="#home"    className={activeLink==='Home'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Home`);collapseDrawer()}}>Home</Nav.Link>
+            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Skills`);collapseDrawer()}}>Skills</Nav.Link>
+            <Nav.Link href="#project" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Projects`);collapseDrawer()}}>Projects</Nav.Link>
+            <Nav.Link href="#contact" className={activeLink==='Contact'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Contact`);collapseDrawer()}}>Contact me</Nav.Link>
             
           </Nav>
           <span className='navbar-text'>

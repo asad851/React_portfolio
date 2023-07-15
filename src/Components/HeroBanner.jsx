@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/images/developer.svg";
+import headerImg from "../assets/images/programming.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -11,7 +11,7 @@ import TrackVisibility from 'react-on-screen';
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
-  const toRotate = "I am a Web Developer";
+  const toRotate = "I am a Web Developer.";
   const period = 2000;
 
   useEffect(() => {
@@ -56,9 +56,9 @@ import TrackVisibility from 'react-on-screen';
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Asad Ahmed Siddiqui`} </h1>
+                <h1>{`Hi! I'm Asad Ahmed Siddiqui.`} </h1>
                 <h1 className="txt-rotate" dataPeriod="1000" data-rotate='I am a Web Developer'><span className="wrap">{text}</span></h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                  <p>I am a front-end developer. I am driven by a passion for crafting captivating user experiences and constantly strive to broaden my expertise in web development. With excellent problem-solving abilities, I excel both as an independent worker and a valuable contributor in team settings..</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
