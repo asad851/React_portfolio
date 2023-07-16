@@ -538,6 +538,7 @@ p, a, li, button, ul {
     transition: 0.5s ease-in-out;
     opacity: 0;
     width: 100%;
+    color:white;
   }
   .proj-imgbx:hover .proj-txtx {
     top: 50%;
@@ -555,8 +556,16 @@ p, a, li, button, ul {
     font-size: 15px;
     letter-spacing: 0.8px;
   }
-  .background-image-right {
+  .background-image-left{
     top: 20%;
+    position: absolute;
+    bottom: 0;
+    width: 35%;
+    left: 0;
+    z-index: -4;
+  }
+  .background-image-right {
+    top: -50%;
     position: absolute;
     bottom: 0;
     width: 35%;
