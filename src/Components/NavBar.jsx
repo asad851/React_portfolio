@@ -56,7 +56,7 @@ function NavBar() {
           <Nav className="ms-auto">
             <Nav.Link href="#home"    className={activeLink==='Home'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Home`);collapseDrawer()}}>Home</Nav.Link>
             <Nav.Link href="#skills"  className={activeLink==='Skills'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Skills`);collapseDrawer()}}>Skills</Nav.Link>
-            <Nav.Link href="#project" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Projects`);collapseDrawer()}}>Projects</Nav.Link>
+            <Nav.Link href="#projects" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Projects`);collapseDrawer()}}>Projects</Nav.Link>
             <Nav.Link href="#contact" className={activeLink==='Contact'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Contact`);collapseDrawer()}}>Contact me</Nav.Link>
             
           </Nav>

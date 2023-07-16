@@ -1,6 +1,8 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
-
+import  ProjectCard  from "./ProjectCard";
+import ecom from '../assets/images/ecom.png'
+import movieapp from '../assets/images/movieapp.png'
+import colorSharp2 from '../assets/images/color-sharp2.png'
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -8,49 +10,30 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
+      title: "Tvpedia",
+      description: "This is a movie app which fetches data from API and is being displayed upon the UI, this app allows you to search movies or tv series and you can look at the details, watch trailer, look at cast and also get recommendationn of similar movies or tv series of the tv series or movies and it can be added to the list.",
+      imgUrl: movieapp,
     },
     {
-      title: "Business Startup",
+      title: "My Wardrobe",
       description: "Design & Development",
-      imgUrl: projImg2,
+      imgUrl: ecom,
     },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
+  
   ];
 
   return (
     <section className="project" id="project">
       <Container>
-        <Row>
+        <Row >
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <h2>My Recent <span class="voilet-text">work</span></h2>
+                <p>Here are some projects that i recently worked upon.</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                  {/* <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
                       <Nav.Link eventKey="first">Tab 1</Nav.Link>
                     </Nav.Item>
@@ -60,10 +43,10 @@ const Projects = () => {
                     <Nav.Item>
                       <Nav.Link eventKey="third">Tab 3</Nav.Link>
                     </Nav.Item>
-                  </Nav>
+                  </Nav> */}
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                     <Tab.Pane eventKey="first">
-                      <Row>
+                      <Row className="justify-content-center">
                         {
                           projects.map((project, index) => {
                             return (
@@ -76,12 +59,12 @@ const Projects = () => {
                         }
                       </Row>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="section">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                    {/* <Tab.Pane eventKey="section">
+                      <p></p>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
+                      <p></p>
+                    </Tab.Pane> */}
                   </Tab.Content>
                 </Tab.Container>
               </div>}
