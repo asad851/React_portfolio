@@ -21,8 +21,7 @@ function NavBar() {
     
   }
   const toggleButton = () => {
-    navrRef.current.classList.add('lodu')
-    console.log('click')
+   
     // navrRef.current.classList.remove('collpase')
 
   }

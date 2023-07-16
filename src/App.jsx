@@ -5,11 +5,11 @@ import Skills from './Components/Skills'
 
 function App() {
   return (
-    <>
+    <div id='app'>
     <NavBar id="home"/>
     <HeroBanner/>
     <Skills id="skills"/>
-    </>
+    </div>
   )
 }
 

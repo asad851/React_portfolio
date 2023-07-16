@@ -273,6 +273,12 @@ p, a, li, button, ul {
 
   /* Hero Banner */
  
+  /* #app{
+    background-image: url('./assets/images/banner-bg.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } */
   .banner {
     margin-top: 0;
     padding: 260px 0 100px 0;
@@ -355,9 +361,15 @@ p, a, li, button, ul {
   .skill {
     padding: 0 0 50px 0;
     position: relative;
+    
   }
   .skill-bx {
-    background: #151515;
+    /* background-image: url('./assets/images/carousel-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* background: #151515; */
+    background: linear-gradient(90.21deg, rgb(202, 35, 135) -5.91%, rgba(74, 47, 189) 111.58%);
     border-radius: 64px;
     text-align: center;
     padding: 60px 50px;
@@ -366,6 +378,7 @@ p, a, li, button, ul {
   .skill h2 {
       font-size: 45px;
       font-weight: 700;
+      margin-bottom: 55px;;
   }
   .skill p {
       color: #B8B8B8;
@@ -382,11 +395,33 @@ p, a, li, button, ul {
   .skill-slider .item img {
     width: 50%;
     margin: 0 auto 15px auto;
+    object-fit: cover;
+    object-position: center;
+    transition-property: scale;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+  }
+  .skill-slider .item {
+   padding:5px;
+  }
+  .skill-slider .item img:hover {
+    scale: 1.05;
   }
   .background-image-left {
     top: 28%;
     position: absolute;
     bottom: 0;
     width: 40%;
+    z-index: -4;
+    object-fit: cover;
+  }
+  .background-image-right {
+    /* top: 28%; */
+    right:0;
+    position: absolute;
+    top: -200px;
+    width: 40%;
+    object-fit: cover;
     z-index: -4;
   }
