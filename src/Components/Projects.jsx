@@ -12,13 +12,15 @@ const Projects = () => {
   const projects = [
     {
       title: "Tvpedia",
-      description: "This is a movie app which fetches data from API and is being displayed upon the UI, this app allows you to search movies or tv series and you can look at the details, watch trailer, look at cast and also get recommendationn of similar movies or tv series of the tv series or movies and it can be added to the list.",
+      description: "This is a movie app which fetches data from API which is being displayed upon the UI, this app allows you to search movies or tv series and you can look at the details, watch trailer, look at cast and also get recommendationn of similar movies or tv series of the tv series or movies and it can be added to the list.",
+      tools:"HTML,ReactJs, Tailwind, Redux toolkit, REST & few react-libraries.",
       imgUrl: movieapp,
       link:'https://tvpedia.netlify.app/',
     },
     {
       title: "My Wardrobe",
-      description: "Design & Development",
+      description: "This is an e-commerce web application which uses data to display them on screen. It provides features such a search products, Add to cart functionality, category wise products, size selection and ultimately a checkout page followed by a payment page.",
+      tools:"HTML,ReactJs, Tailwind, Redux toolkit, & few react-libraries",
       imgUrl: ecom,
       link:'https://e-com-repo.vercel.app/',
     },
