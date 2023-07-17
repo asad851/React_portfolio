@@ -5,6 +5,7 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
+
  const HeroBanner = () => {
  
   const [isDeleting, setIsDeleting] = useState(false);
@@ -46,6 +47,13 @@ import TrackVisibility from 'react-on-screen';
       
     }
   }
+  const handleDownload = () => {
+    // const link = document.createElement('a');
+    // link.href = '../../public/pdf/resume.pdf'
+    // link.download = 'resume.pdf';
+    // link.click();
+    window.open('../../public/pdf/resume.pdf', '_blank');
+  };
 
   return (
     <section className="banner" id="home">
@@ -60,6 +68,7 @@ import TrackVisibility from 'react-on-screen';
                 <h1 className="txt-rotate" dataPeriod="1000" data-rotate='I am a Web Developer'><span className="wrap">{text}</span></h1>
                   <p>I am a front-end developer. I am driven by a passion for crafting captivating user experiences and constantly strive to broaden my expertise in web development. With excellent problem-solving abilities, I excel both as an independent worker and a valuable contributor in team settings..</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <button onClick={() =>handleDownload() }>Resume <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>

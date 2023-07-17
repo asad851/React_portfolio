@@ -38,6 +38,7 @@ import colorSharp2 from "../assets/images/color-sharp2.png"
 
   return (
     <section className="skill" id="skills">
+       
         <div className="container">
             <div className="row">
                 <div className="col-12">

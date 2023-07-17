@@ -372,17 +372,21 @@ p, a, li, button, ul {
     position: relative;
     
   }
+ 
   .skill-bx {
     /* background-image: url('./assets/images/carousel-bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
     /* background: #151515; */
+    position: relative;
+    /* z-index:50; */
     background: linear-gradient(90.21deg, rgb(202, 35, 135) -5.91%, rgba(74, 47, 189) 111.58%);
     border-radius: 64px;
     text-align: center;
     padding: 60px 50px;
     margin-top: -60px;
+    
   }
   .skill h2 {
       font-size: 45px;
@@ -441,6 +445,7 @@ p, a, li, button, ul {
     position: relative;
     background-color: black;
   }
+  
   .project h2 {
       font-size: 45px;
       font-weight: 700;
@@ -574,6 +579,7 @@ p, a, li, button, ul {
     width: 35%;
     left: 0;
     z-index: -4;
+    
   }
   .background-image-right {
     top: -50%;
