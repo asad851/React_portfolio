@@ -1,10 +1,10 @@
 import React from "react";
-import NavBar from "./Components/NavBar";
-import HeroBanner from "./Components/HeroBanner";
+
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 import { Element } from "react-scroll";
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
       <Projects />
 
       <Contact />
+      <Footer/>
     </div>
   );
 }
