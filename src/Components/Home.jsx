@@ -2,10 +2,10 @@ import React from 'react'
 import NavBar from './NavBar'
 import HeroBanner from './HeroBanner'
 
-function Home() {
+function Home({scrollToElement}) {
   return (
     <>
-    <NavBar/>
+    <NavBar scrollToElement={scrollToElement}/>
     <HeroBanner/>
     </>
   )

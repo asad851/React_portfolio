@@ -7,8 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import linkedin from "../assets/images/nav-icon1.svg"
 import insta from "../assets/images/nav-icon3.svg"
 import github from '../assets/images/icons8-github.svg'
+import { animateScroll as scroll } from 'react-scroll';
 import { useRef } from 'react';
-function NavBar() {
+import Contact from './Contact';
+function NavBar({scrollToElement}) {
   const [activeLink,setActiveLink] = useState('Home')
   const [scrolled,setScrolled]=useState(false)
   const [show,setShow] =useState('')
@@ -54,10 +56,10 @@ function NavBar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav"  ref={navrRef}>
           <Nav className="ms-auto">
-            <Nav.Link href="#home"    className={activeLink==='Home'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Home`);collapseDrawer()}}>Home</Nav.Link>
-            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Skills`);collapseDrawer()}}>Skills</Nav.Link>
-            <Nav.Link href="#projects" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Projects`);collapseDrawer()}}>Projects</Nav.Link>
-            <Nav.Link href="#contact" className={activeLink==='Contact'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Contact`);collapseDrawer()}}>Contact me</Nav.Link>
+            <Nav.Link href="#home"    className={activeLink==='Home'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Home`);collapseDrawer();scrollToElement('#home')}}>Home</Nav.Link>
+            <Nav.Link href="#skills"  className={activeLink==='Skills'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Skills`);collapseDrawer();scrollToElement('#skills')}}>Skills</Nav.Link>
+            <Nav.Link href="#Projects" className={activeLink==='Projects'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Projects`);collapseDrawer();scrollToElement('#projects')}}>Projects</Nav.Link>
+            <Nav.Link href="#contact" className={activeLink==='Contact'?'active navbar-link':'navbar-link'} onClick={(e)=>{setActiveLink(`Contact`);collapseDrawer();scrollToElement('#contact')}}>Contact me</Nav.Link>
             
           </Nav>
           <span className='navbar-text'>
@@ -66,7 +68,7 @@ function NavBar() {
               <a href="https://github.com/asad851" target="_blank"><img src={github} alt=""  /></a>
               <a href="https://www.instagram.com/asad_saiyan/?hl=en" target='_blank'><img src={insta} alt=""  /></a>
             </div>
-            <button className='vvd' onClick={()=>console.log('connect')}>Let's Connect</button>
+            <button className='vvd' onClick={()=>{scrollToElement('#contact');collapseDrawer()}} >Let's Connect</button>
           </span>
         </Navbar.Collapse>
       </Container>
