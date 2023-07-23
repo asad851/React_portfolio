@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/images/contact-img.svg";
 import 'animate.css';
@@ -39,7 +39,12 @@ const Contact = () => {
       setStatus({ success: false, message: 'Something went wrong, please try again later.' });
     }
   };
-
+  
+    if(status.message){
+      alert(status.message)
+    }
+   
+  
   return (
     <section className="contact" id="contact">
       <Container>
@@ -74,12 +79,12 @@ const Contact = () => {
                       <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                       <button type="submit"><span>{buttonText}</span></button>
                     </Col>
-                    {
+                    {/* {
                       status.message &&
                       <Col className="contact-message">
                         <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
                       </Col>
-                    }
+                    } */}
                   </Row>
                 </form>
               </div>}
