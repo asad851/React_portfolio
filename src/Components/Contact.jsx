@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/images/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const formInitialDetails = {
@@ -25,21 +26,17 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonText("Sending...");
-    let response = await fetch("http://localhost:3000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+    setButtonText('Sending...');
+  
+    try {
+      await emailjs.send("service_aleeb8t", "template_jguwfeq", formDetails,"l0mERi78QaDVJSPrm");
+      setButtonText('Send');
+      setFormDetails(formInitialDetails);
+      setStatus({ success: true, message: 'Message sent successfully' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setButtonText('Send');
+      setStatus({ success: false, message: 'Something went wrong, please try again later.' });
     }
   };
 
