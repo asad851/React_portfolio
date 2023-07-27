@@ -14,6 +14,8 @@ import arrow1 from "../assets/images/arrow1.svg";
 import arrow2 from "../assets/images/arrow2.svg";
 import colorSharp from "../assets/images/color-sharp.png"
 import colorSharp2 from "../assets/images/color-sharp2.png"
+import graphql from '../assets/images/graphql.svg'
+import typescript from '../assets/images/typescript.svg'
 
  const Skills = () => {
   const responsive = {
@@ -67,6 +69,10 @@ import colorSharp2 from "../assets/images/color-sharp2.png"
                                 <h5>JavasScript</h5>
                             </div>
                             <div className="item">
+                                <img src={typescript} alt="Image" />
+                                <h5>TypeScript</h5>
+                            </div>
+                            <div className="item">
                                 <img src={react} alt="Image" />
                                 <h5>React</h5>
                             </div>
@@ -85,6 +91,10 @@ import colorSharp2 from "../assets/images/color-sharp2.png"
                             <div className="item">
                                 <img src={git} alt="Image" />
                                 <h5>Git</h5>
+                            </div>
+                            <div className="item graphql">
+                                <img src={graphql} alt="Image" />
+                                <h5>GraphQL & Apollo CLient</h5>
                             </div>
                         </Carousel>
                     </div>

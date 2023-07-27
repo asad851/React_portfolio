@@ -6,7 +6,7 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 
- const HeroBanner = () => {
+ const HeroBanner = ({scrollToElement}) => {
  
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
@@ -52,7 +52,7 @@ import TrackVisibility from 'react-on-screen';
     // link.href = '../../public/pdf/resume.pdf'
     // link.download = 'resume.pdf';
     // link.click();
-    window.open('../../public/pdf/resume.pdf', '_blank');
+    window.open('https://drive.google.com/file/d/1qtEV6CXc9BFf4CcVpSOnzu-QAMo2nyiJ/view?usp=sharing', '_blank');
   };
 
   return (
@@ -67,7 +67,7 @@ import TrackVisibility from 'react-on-screen';
                 <h1>{`Hi! I'm Asad Ahmed Siddiqui.`} </h1>
                 <h1 className="txt-rotate" dataPeriod="1000" data-rotate='I am a Web Developer'><span className="wrap">{text}</span></h1>
                   <p>I am a front-end developer. I am driven by a passion for crafting captivating user experiences and constantly strive to broaden my expertise in web development. With excellent problem-solving abilities, I excel both as an independent worker and a valuable contributor in team settings..</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <button onClick={() => scrollToElement('#contact')}>Let’s Connect <ArrowRightCircle size={25} /></button>
                   <button onClick={() =>handleDownload() }>Resume <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>

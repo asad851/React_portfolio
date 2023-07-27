@@ -6,7 +6,7 @@ function Home({scrollToElement}) {
   return (
     <>
     <NavBar scrollToElement={scrollToElement}/>
-    <HeroBanner/>
+    <HeroBanner scrollToElement={scrollToElement}/>
     </>
   )
 }
