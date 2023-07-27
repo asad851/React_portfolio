@@ -426,6 +426,7 @@ p, a, li, button, ul {
   .skill-slider .item img:hover {
     scale: 1.05;
   }
+  
   .background-image-left {
     top: 28%;
     position: absolute;
