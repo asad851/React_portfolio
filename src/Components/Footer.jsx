@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer px-4 d-flex justify-content-between">
       <p>
-        Call me on <span onClick={(e)=>handleCopy(e.target.innerHTML)}>+91703623365</span>
+        Call me on <span onClick={(e)=>handleCopy(e.target.innerHTML)}>+917013623365</span>
       <p>siddiquiasad851@gmail.com</p>
       </p>
 

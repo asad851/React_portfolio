@@ -66,7 +66,7 @@ import TrackVisibility from 'react-on-screen';
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Asad Ahmed Siddiqui.`} </h1>
                 <h1 className="txt-rotate" dataPeriod="1000" data-rotate='I am a Web Developer'><span className="wrap">{text}</span></h1>
-                  <p>I am a front-end developer. I am driven by a passion for crafting captivating user experiences and constantly strive to broaden my expertise in web development. With excellent problem-solving abilities, I excel both as an independent worker and a valuable contributor in team settings..</p>
+                  <p>As a passionate frontend developer, I bring creative visions to life and craft delightful user experiences on the web. Eager to learn, grow and work with teams to deliver high-quality code that leaves a lasting impression on users. I embrace every opportunity to master the latest technologies and contribute to projects that make a positive impact...</p>
                   <button onClick={() => scrollToElement('#contact')}>Let’s Connect <ArrowRightCircle size={25} /></button>
                   <button onClick={() =>handleDownload() }>Resume <ArrowRightCircle size={25} /></button>
               </div>}

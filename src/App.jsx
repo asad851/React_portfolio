@@ -12,7 +12,7 @@ function App() {
     const targetElement = document.querySelector(id);
     console.log(targetElement)
     if (targetElement) {
-      const targetPosition = targetElement.offsetTop;
+      const targetPosition = targetElement.offsetTop-100;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
   };
