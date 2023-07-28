@@ -37,7 +37,7 @@ const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__": ""}>
                 <h2>My Recent <span class="voilet-text">work</span></h2>
-                <p>Here are some projects that i recently worked upon.</p>
+                <p>Here are some of the  projects that I recently worked upon.</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   {/* <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
