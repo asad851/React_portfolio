@@ -52,7 +52,7 @@ import TrackVisibility from 'react-on-screen';
     // link.href = '../../public/pdf/resume.pdf'
     // link.download = 'resume.pdf';
     // link.click();
-    window.open('https://drive.google.com/file/d/1qtEV6CXc9BFf4CcVpSOnzu-QAMo2nyiJ/view?usp=sharing', '_blank');
+    window.open('../../public/pdf/Frontend web dev reusme.pdf', '_blank');
   };
 
   return (
