@@ -457,7 +457,7 @@ p, a, li, button, ul {
   font-weight: 700;
   text-align: center;
 }
-.experience p {
+.experience p,li {
   color: #b8b8b8;
   font-size: 18px;
   letter-spacing: .8px;
@@ -465,7 +465,7 @@ p, a, li, button, ul {
   margin: 14px auto 30px;
   width: 56%;
 }
-.experience h5 {
+.experience h5,h6 {
   width: 56%;
   margin: 14px auto 30px;
 }

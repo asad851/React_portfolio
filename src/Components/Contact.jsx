@@ -3,8 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/images/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-import emailjs from "@emailjs/browser";
-
+import axios from "axios";
 const Contact = () => {
   const formInitialDetails = {
     firstName: "",
@@ -27,14 +26,13 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-
+    console.log(formDetails);
     try {
-      await emailjs.send(
-        "service_aleeb8t",
-        "template_jguwfeq",
-        formDetails,
-        "l0mERi78QaDVJSPrm"
+      const response = await axios.post(
+        "https://portfolio-backend-production-4bef.up.railway.app/send-email",
+        formDetails
       );
+      console.log(response);
       setButtonText("Send");
       setFormDetails(formInitialDetails);
       setStatus({ success: true, message: "Message sent successfully" });
@@ -49,7 +47,7 @@ const Contact = () => {
   };
 
   if (status.message) {
-    alert(status.message);
+    // alert(status.message);
   }
 
   return (
