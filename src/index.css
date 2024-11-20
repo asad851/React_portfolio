@@ -444,6 +444,32 @@ p, a, li, button, ul {
     object-fit: cover;
     z-index: -4;
   }
+/*Css for Experience*/
+.experience{
+  padding: 80px 0;
+  position: relative;
+  background-color: #000;
+  max-height: 400px;
+  overflow: auto;
+}
+.experience h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+}
+.experience p {
+  color: #b8b8b8;
+  font-size: 18px;
+  letter-spacing: .8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px;
+  width: 56%;
+}
+.experience h5 {
+  width: 56%;
+  margin: 14px auto 30px;
+}
+
 
 /* Css for Project section */
   .project {

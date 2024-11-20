@@ -58,7 +58,7 @@ import TrackVisibility from 'react-on-screen';
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center ROW">
+        <Row className="align-items-center ROW">
           <Col xs={12} md={10} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
