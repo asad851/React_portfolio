@@ -19,17 +19,16 @@ function Experience() {
                   functionalities. Here is an overview of my journey as a
                   frontend developer:.
                 </p>
-                <div class="tab-content" id="slideInUp">
-                  <h5>HTML &amp; CSS Mastery</h5>
-                  <p>
-                    Picture this: turning design concepts into living, breathing
-                    web pages. That's what I did. I made sure that every site I
-                    worked on not only looked fantastic but also functioned
-                    seamlessly on various devices and browsers. It's all about
-                    those little details, right?
-                  </p>
-                 
-                </div>
+
+                <p>
+                  Spearheaded frontend development from scratch using React,
+                  establishing a scalable architecture. Developed
+                  authentication-based UI components to improve security in user
+                  registration and login. Leveraged React.js, Redux Toolkit,
+                  React-Router, HTML5, and SASS to build responsive, visually
+                  appealing web pages. Implemented CI/CD pipelines using AWS for
+                  automated deployment.
+                </p>
               </div>
             </div>
           </div>
