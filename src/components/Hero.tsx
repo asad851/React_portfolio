@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowRight, Download, Mail, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -128,7 +127,6 @@ const Hero = () => {
                     Node.js
                   </span>
                 </div>
-               
               </div>
             </div>
           </div>

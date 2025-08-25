@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Progress } from "./ui/progress";
@@ -49,13 +48,6 @@ const Skills = () => {
     },
   ];
 
-  const getProgressColor = (level: number) => {
-    if (level >= 90) return "bg-green-500";
-    if (level >= 80) return "bg-blue-500";
-    if (level >= 70) return "bg-yellow-500";
-    return "bg-red-500";
-  };
-
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
@@ -96,7 +88,7 @@ const Skills = () => {
                           {skill.level}%
                         </span>
                       </div>
-                      <Progress value={skill.level} className="h-2" />
+                      <Progress value={skill.level} className={`h-2 `} />
                     </div>
                   ))}
                 </div>

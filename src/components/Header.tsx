@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X, Code2 } from "lucide-react";
+import { Moon, Sun, Menu, Code2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
