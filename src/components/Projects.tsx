@@ -19,7 +19,7 @@ const Projects = () => {
         "A comprehensive cloud storage solution with advanced file management capabilities, secure sharing, and real-time collaboration features. Built with modern React architecture and optimized for performance.",
       image: filezone,
       liveUrl: "https://filezone-rho.vercel.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/asad851/filezone",
       technologies: [
         "React.js",
         "Expresss.js",
@@ -49,7 +49,7 @@ const Projects = () => {
         "A full-featured e-commerce solution with modern UI/UX, secure payment integration, inventory management, and comprehensive admin dashboard. Optimized for conversion and user experience.",
       image: ecom,
       liveUrl: "https://e-com-repo.vercel.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/asad851/e-commerce_frontend",
       technologies: [
         "React.js",
         "Redux Toolkit",
@@ -127,7 +127,7 @@ const Projects = () => {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="border-white/50 text-white hover:bg-white/90 hover:text-slate-900 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+                        className="border-white/50 dark:text-white dark:hover:text-black text-black hover:bg-white/90 hover:text-slate-900 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all hover:scale-105"
                         onClick={() => window.open(project.githubUrl, "_blank")}
                       >
                         <Github className="h-4 w-4 mr-2" />
