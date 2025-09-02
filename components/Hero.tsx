@@ -1,12 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRight, Download, Mail, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { toast } from "sonner";
-
+import { motion } from "framer-motion";
 const Hero = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const titles = [
+    "Frontend Developer",
+    "React Specialist",
+    "SaaS Builder",
+    "Problem Solver",
+  ];
+
+  useEffect(() => {
+    const currentTitle = titles[currentIndex];
+    let charIndex = 0;
+
+    const typingInterval = setInterval(() => {
+      if (charIndex <= currentTitle.length) {
+        setDisplayText(currentTitle.substring(0, charIndex));
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % titles.length);
+        }, 2000);
+      }
+    }, 100);
+
+    return () => clearInterval(typingInterval);
+  }, [currentIndex]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -52,31 +80,42 @@ const Hero = () => {
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 lg:space-y-8 animate-fade-in text-center lg:text-left">
-            <div className="space-y-4">
-              <Badge
-                variant="secondary"
-                className="mb-4 bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 border-violet-200 dark:border-violet-800 text-violet-700 dark:text-violet-300 hover:scale-105 transition-transform"
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center lg:text-left"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-primary font-medium mb-4"
               >
                 Available for Frontend/Fullstack Opportunities
-              </Badge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-slate-900 dark:text-white">Hi, I'm </span>
-                <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent animate-pulse">
-                  Asad Siddiqui
-                </span>
-                <br />
-                <span className="text-slate-700 dark:text-slate-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative">
-                  Frontend Developer
-                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 rounded-full opacity-30"></div>
-                </span>
-              </h1>
-              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                Innovative Frontend Developer with expertise in React.js,
-                Next.js, and modern JavaScript frameworks. I build scalable,
-                responsive web applications that enhance user experiences in B2B
-                SaaS platforms.
-              </p>
-            </div>
+              </motion.p>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-5xl lg:text-7xl font-bold mb-6"
+              >
+                Hi, I'm <span className="gradient-text">Asad Siddiqui</span>
+              </motion.h1>
+
+              <div className="h-16 mb-6">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-2xl lg:text-4xl font-semibold text-foreground/80"
+                >
+                  {displayText}
+                  <span className="animate-pulse">|</span>
+                </motion.h2>
+              </div>
+            </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
@@ -135,7 +174,7 @@ const Hero = () => {
                 </div>
 
                 {/* Floating tech badges */}
-                  <div className="absolute top-4 left-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl animate-float border border-blue-200 dark:border-blue-800 animate-bounce delay-1000">
+                <div className="absolute top-4 left-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl animate-float border border-blue-200 dark:border-blue-800 animate-bounce delay-1000">
                   <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
                     React
                   </span>
