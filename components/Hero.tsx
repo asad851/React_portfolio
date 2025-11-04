@@ -6,9 +6,20 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+export enum phoneNumber {
+  INDIA = "+91-7013623365",
+  DUBAI = "+971-56-4541395",
+}
+enum resumePath {
+  AE = "/ASAD_AHMED_SIDDIQUI.pdf",
+  IN = "/asad_siddiqui.pdf",
+}
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [countryCode, setCountryCode] = useState<string | null>(null);
+  const [phone, setPhone] = useState<string>("Loading...");
+  const [resume, setResume] = useState<string>("");
   const titles = [
     "Frontend Developer",
     "React Specialist",
@@ -19,7 +30,6 @@ const Hero = () => {
   useEffect(() => {
     const currentTitle = titles[currentIndex];
     let charIndex = 0;
-
     const typingInterval = setInterval(() => {
       if (charIndex <= currentTitle.length) {
         setDisplayText(currentTitle.substring(0, charIndex));
@@ -35,16 +45,40 @@ const Hero = () => {
     return () => clearInterval(typingInterval);
   }, [currentIndex]);
 
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
+        const res = await fetch("https://ipinfo.io/json");
+        const data = await res.json();
+        const code = data?.country || "";
+        setCountryCode(code);
+        localStorage.setItem("countryCode", code);
+        // Map numbers by country
+        const numbers: Record<string, string> = {
+          IN: phoneNumber.INDIA, // India
+          AE: phoneNumber.DUBAI, // UAE
+          default: phoneNumber.DUBAI,
+        };
+        setResume(resumePath[code as keyof typeof resumePath] || resumePath.AE);
+        setPhone(numbers[code] || numbers.default);
+      } catch (error) {
+        console.error("Error fetching location:", error);
+        setCountryCode("AE");
+        setPhone(phoneNumber.DUBAI); // fallback
+      }
+    };
+    if (!countryCode) fetchLocation();
+  }, [countryCode]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
   const handleDownloadResume = async () => {
     try {
-      const response = await fetch("/asad_siddiqui.pdf");
+      const response = await fetch(resume);
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
@@ -151,7 +185,7 @@ const Hero = () => {
                 <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
                   <Phone className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <span className="text-xs sm:text-sm">+91 7013623365</span>
+                <span className="text-xs sm:text-sm">{phone}</span>
               </div>
             </div>
           </div>

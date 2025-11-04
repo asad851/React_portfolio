@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -16,6 +16,7 @@ import {
   Twitter,
 } from "lucide-react";
 import { toast } from "sonner";
+import { phoneNumber } from "./Hero";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -26,13 +27,20 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [phone, setPhone] = useState<string>("Loading...");
+  const [country, setCountry] = useState<string>("Loading...");
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  const countryCode =
+    typeof window !== "undefined" ? localStorage.getItem("countryCode") : null;
+  useEffect(() => {
+    setCountry(countryCode === "IN" ? "India" : "Dubai, UAE");
+    setPhone(countryCode === "IN" ? phoneNumber.INDIA : phoneNumber.DUBAI);
+  }, [countryCode]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,13 +81,13 @@ const Contact = () => {
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Phone",
-      value: "+91 7013623365",
-      href: "tel:+917013623365",
+      value: phone,
+      href: `tel:${phone}`,
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "India",
+      value: country,
       href: "#",
     },
   ];
