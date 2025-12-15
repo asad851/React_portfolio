@@ -11,7 +11,7 @@ const Experience = () => {
       title: "Founding Engineer (SDE-1)",
       company: "Unsuit Legal Technologies",
       location: "Remote",
-      period: "Nov 2023 - Nov 2024",
+      period: "Nov 2023 - Oct 2025",
       achievements: [
         "Architected a full-scale frontend SaaS platform using React.js, resulting in a 35% increase in onboarding efficiency for over 1,200+ legal professionals",
         "Implemented secure, multi-role authentication (admin, user, super admin), reducing unauthorized access attempts by 90% and improving compliance",
