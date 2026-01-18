@@ -10,14 +10,14 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-violet-50 dark:from-slate-950 dark:via-slate-900 dark:to-violet-950 transition-colors">
+    <div className="min-h-screen  transition-colors bg-background text-foreground noise-overlay">
       <Header />
       <main>
         <Hero />
         <About />
-        <Experience />
-        <Projects />
         <Skills />
+        <Projects />
+        <Experience />
         {/* <Achievements /> */}
         <Contact />
       </main>

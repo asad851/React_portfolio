@@ -3,11 +3,37 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Calendar, MapPin, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Briefcase, GraduationCap, Calendar } from "lucide-react";
 
 const Experience = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const experiences = [
     {
+      type: "work",
+      title: "Freelance Fullstack Developer",
+      company: "Self-Employed",
+      period: "Oct 2025 - Present",
+      technologies: [
+        "React.js",
+        "Redux",
+        "Material-UI",
+        "JavaScript",
+        "REST APIs",
+        "Scss",
+        "HTML5",
+        "Git",
+        "Tailwind CSS",
+      ],
+      description:
+        "Providing fullstack development services, building scalable web applications for diverse clients.",
+      achievements: [],
+    },
+    {
+      type: "work",
       title: "Founding Engineer (SDE-1)",
       company: "Unsuit Legal Technologies",
       location: "Remote",
@@ -19,6 +45,8 @@ const Experience = () => {
         "Developed an advanced document management system supporting CRUD, split, and merge operations, cutting legal document handling time by 30%",
         "Optimized frontend API handling through custom React hooks, reducing redundant code by 50% and decreasing request-related bugs by 60%",
       ],
+      description:
+        "Led frontend architecture for a legal SaaS platform serving 1200+ professionals.",
       technologies: [
         "React.js",
         "Redux",
@@ -32,6 +60,7 @@ const Experience = () => {
       ],
     },
     {
+      type: "work",
       title: "Founding Engineer (SDE-1)",
       company: "Caresync",
       location: "Remote",
@@ -42,6 +71,8 @@ const Experience = () => {
         "Designed and implemented 20+ responsive UI components using HTML5, SCSS, and React Router, enhancing page load times by 25% across devices",
         "Automated build and deployment pipelines with AWS CI/CD, slashing deployment time by 90% and enabling weekly release cycles",
       ],
+      description:
+        "Complete frontend development for a healthcare product serving 15+ enterprise clients.",
       technologies: [
         "React.js",
         "Redux Toolkit",
@@ -52,96 +83,89 @@ const Experience = () => {
         "HTML5",
       ],
     },
+    {
+      type: "education",
+      title: "Bachelor of Technology",
+      company: "JNTUH, Hyderabad",
+      period: "July 2013 - June 2017",
+      description: "Graduated with a strong foundation in  engineering.",
+      achievements: [],
+    },
   ];
 
   return (
-    <section
-      id="experience"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50"
-    >
-      <div className="container mx-auto">
+     <section id="experience" className="py-24 md:py-32 relative bg-card/50">
+      <div className="section-container" ref={ref}>
+        {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
-            Work Experience
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-            Professional Journey
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Building innovative solutions and driving impact at fast-growing
-            startups
-          </p>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-primary font-medium mb-4 block"
+          >
+            My Journey
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold"
+          >
+            Experience & <span className="text-gradient-primary">Education</span>
+          </motion.h2>
         </div>
 
-        <div className="space-y-6 sm:space-y-8">
+        {/* Timeline */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline Line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
+
           {experiences.map((exp, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-2xl transition-all duration-300 border-slate-200 dark:border-slate-700"
+            <motion.div
+              key={`${exp.title}-${exp.period}`}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              className={`relative pl-8 md:pl-0 pb-12 last:pb-0 ${
+                index % 2 === 0 ? 'md:pr-[calc(50%+2rem)] md:text-right' : 'md:pl-[calc(50%+2rem)]'
+              }`}
             >
-              <CardHeader className="pb-4 p-4 sm:p-6">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                  <div>
-                    <CardTitle className="text-lg sm:text-xl text-slate-900 dark:text-white mb-2">
-                      {exp.title}
-                    </CardTitle>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-slate-600 dark:text-slate-400">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
-                        <span className="font-medium text-violet-600 dark:text-violet-400">
-                          {exp.company}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span className="text-sm">{exp.period}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <Badge variant="secondary" className="w-fit">
-                    <TrendingUp className="h-3 w-3 mr-1" />
-                    Founding Engineer
-                  </Badge>
-                </div>
-              </CardHeader>
+              {/* Timeline Dot */}
+              <div
+                className={`absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-primary glow-primary -translate-x-1/2 mt-1.5`}
+              />
 
-              <CardContent className="p-4 sm:p-6 pt-0">
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm sm:text-base">
-                      Key Achievements
-                    </h4>
-                    <ul className="space-y-3">
-                      {exp.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-violet-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            {achievement}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm sm:text-base">
-                      Technologies Used
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, idx) => (
-                        <Badge
-                          key={idx}
-                          variant="outline"
-                          className="text-xs bg-violet-50 dark:bg-violet-900/20 border-violet-200 dark:border-violet-800 text-violet-700 dark:text-violet-300"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
+              {/* Card */}
+              <div className="card-elevated rounded-2xl p-6 hover-lift">
+                <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+                  {exp.type === 'work' ? (
+                    <Briefcase size={18} className="text-primary" />
+                  ) : (
+                    <GraduationCap size={18} className="text-primary" />
+                  )}
+                  <span className="text-sm text-muted-foreground flex items-center gap-1">
+                    <Calendar size={14} />
+                    {exp.period}
+                  </span>
                 </div>
-              </CardContent>
-            </Card>
+
+                <h3 className="font-display font-bold text-xl mb-1">{exp.title}</h3>
+                <p className="text-primary font-medium mb-3">{exp.company}</p>
+                <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
+
+                {exp.achievements.length > 0 && (
+                  <ul className={`space-y-2 ${index % 2 === 0 ? 'md:text-left' : ''}`}>
+                    {exp.achievements.map((achievement) => (
+                      <li key={achievement} className="flex items-start gap-2 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

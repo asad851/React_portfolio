@@ -1,11 +1,20 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Download, Mail, Phone } from "lucide-react";
+import {
+  ArrowDown,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Download,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { hero } from "@/lib/images";
+import Image from "next/image";
 export enum phoneNumber {
   INDIA = "+91-7013623365",
   DUBAI = "+971-56-4541395",
@@ -102,137 +111,144 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-16 lg:pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-violet-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-indigo-400/20 to-violet-600/20 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-indigo-400/10 rounded-full blur-3xl animate-pulse animation-delay-500"></div>
+      {/* Background */}
+      <div className="absolute inset-0">
+        <Image
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          src={hero}
+          alt="heroBg"
+        />
+        {/* <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${hero})` }}
+        /> */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 lg:space-y-8 animate-fade-in text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center lg:text-left"
+      <div className="section-container relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-border mb-8"
+          >
+            <MapPin size={16} className="text-primary" />
+            <span className="text-sm text-muted-foreground">
+              Based in Dubai, UAE
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6"
+          >
+            Hi, I'm <span className="text-gradient-primary">Asad Ahmed</span>
+            <br />
+            <span className="text-muted-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+              Fullstack Developer
+            </span>
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 px-2"
+          >
+            Crafting scalable, pixel-perfect web experiences with React.js,
+            Next.js, and modern JavaScript. 3+ years of building B2B SaaS
+            platforms that users love.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          >
+            <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
+              <a href="#contact">Get in Touch</a>
+            </Button>
+            <Button
+              onClick={handleDownloadResume}
+              variant="heroOutline"
+              size="lg"
+              className="w-full sm:w-auto"
             >
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-primary font-medium mb-4"
+              {/* Download Resume  */}
+              <Download size={16} className="text-primary" />
+              <a>Download Resume</a>
+            </Button>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex items-center justify-center gap-4"
+          >
+            {[
+              {
+                icon: Github,
+                href: "https://github.com/asad851",
+                label: "GitHub",
+              },
+              {
+                icon: Linkedin,
+                href: "https://www.linkedin.com/in/asad-ahmed-siddiqui-7b875977/",
+                label: "LinkedIn",
+              },
+              {
+                icon: Mail,
+                href: "mailto:siddiquiasad851@gmail.com",
+                label: "Email",
+              },
+            ].map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full glass-effect border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={social.label}
               >
-                Available for Frontend/Fullstack Opportunities
-              </motion.p>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-5xl lg:text-7xl font-bold mb-6"
-              >
-                Hi, I'm <span className="gradient-text">Asad Siddiqui</span>
-              </motion.h1>
-
-              <div className="h-16 mb-6">
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-2xl lg:text-4xl font-semibold text-foreground/80"
-                >
-                  {displayText}
-                  <span className="animate-pulse">|</span>
-                </motion.h2>
-              </div>
-            </motion.div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden group"
-                onClick={() => scrollToSection("#contact")}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                Get In Touch
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 z-50 border-violet-300 dark:border-violet-600 hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:border-violet-400 dark:hover:border-violet-500 transition-all hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
-                onClick={handleDownloadResume}
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
-              </Button>
-            </div>
-
-            <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                <div className="p-2 bg-violet-100 dark:bg-violet-900/30 rounded-lg">
-                  <Mail className="h-4 w-4 text-violet-600 dark:text-violet-400" />
-                </div>
-                <span className="text-xs sm:text-sm">
-                  siddiquiasad851@gmail.com
-                </span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                  <Phone className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <span className="text-xs sm:text-sm">{phone}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div className="relative">
-              {/* Animated background circles */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <div className="absolute -inset-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-3xl opacity-20 animate-pulse animation-delay-1000"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl opacity-10 animate-pulse animation-delay-500"></div>
-
-              {/* Profile image placeholder with modern design */}
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-gradient-to-br from-violet-100 via-purple-50 to-indigo-100 dark:from-violet-900/20 dark:via-purple-900/20 dark:to-indigo-900/20 rounded-3xl border-4 border-white dark:border-slate-700 shadow-2xl overflow-hidden group hover:scale-105 transition-transform duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-purple-600/10 to-indigo-600/10"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent group-hover:via-white/10 transition-all duration-500"></div>
-                <div className="flex items-center justify-center h-full">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    AS
-                  </div>
-                </div>
-
-                {/* Floating tech badges */}
-                <div className="absolute top-4 left-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl animate-float border border-blue-200 dark:border-blue-800 animate-bounce delay-1000">
-                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
-                    React
-                  </span>
-                </div>
-                <div className="absolute top-2 right-4  bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl animate-float animation-delay-800 border border-teal-200 dark:border-teal-800 animate-bounce delay-1000">
-                  <span className="text-xs font-bold text-teal-600 dark:text-teal-400">
-                    Next.js
-                  </span>
-                </div>
-                <div className="absolute bottom-2 left-4  bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl animate-float animation-delay-1000 border border-purple-200 dark:border-purple-800 animate-bounce delay-1000">
-                  <span className="text-xs font-bold text-purple-600 dark:text-purple-400">
-                    Express.js
-                  </span>
-                </div>
-                <div className="absolute bottom-2 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl animate-float animation-delay-1500 border border-orange-200 dark:border-orange-800 animate-bounce delay-1000">
-                  <span className="text-xs font-bold text-green-600 dark:text-green-400">
-                    Node.js
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+                <social.icon size={20} />
+              </motion.a>
+            ))}
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.a
+          href="#about"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <ArrowDown size={20} />
+        </motion.a>
+      </motion.div>
     </section>
   );
 };

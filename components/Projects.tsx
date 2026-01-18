@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -11,6 +12,7 @@ import {
   Zap,
   ShoppingCart,
   FileText,
+  ArrowUpRight,
 } from "lucide-react";
 import { filezone, ecom } from "../lib/images";
 import Image from "next/image";
@@ -32,7 +34,7 @@ const Projects = () => {
         "RTK query",
         "REST APIs",
         "Node.js",
-        "MongoDB",
+        "Neon DB",
         "Firebase",
       ],
       features: [
@@ -40,7 +42,6 @@ const Projects = () => {
         "Real-time collaboration tools",
         "Advanced search and filtering",
         "Multi-format file preview",
-        "Responsive design across devices",
       ],
       icon: <FileText className="h-6 w-6" />,
       category: "SaaS Platform",
@@ -64,191 +65,112 @@ const Projects = () => {
       status: "Live",
     },
   ];
-
+ 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <Badge variant="outline" className="mb-4">
+      <div className="section-container" ref={ref}>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-primary font-medium mb-4 block"
+          >
             Featured Projects
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">
-            Live Projects & Applications
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Showcasing real-world applications built with modern technologies
-            and best practices
-          </p>
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold"
+          >
+            Things I've <span className="text-gradient-primary">Built</span>
+          </motion.h2>
         </div>
 
-        <div className="grid gap-8 lg:gap-12">
+        {/* Projects Grid */}
+        <div className="space-y-24">
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className={`group hover:shadow-2xl hover:shadow-violet-500/10 dark:hover:shadow-violet-500/20 transition-all duration-500 border-slate-200 dark:border-slate-700 overflow-hidden bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-slate-800/80 ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
+              className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
+                index % 2 === 1 ? 'lg:grid-flow-dense' : ''
               }`}
             >
-              <div className="lg:flex lg:items-center">
-                {/* Project Image */}
-                <div className="lg:w-1/2 relative overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-violet-100 via-purple-50 to-indigo-100 dark:from-violet-900/20 dark:via-purple-900/20 dark:to-indigo-900/20 relative group-hover:scale-105 transition-transform duration-500">
-                    <Image
-                      className="absolute w-full h-full"
-                      src={project.image}
-                      alt={project.title}
-                    />
-                    {/* Decorative gradients */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-purple-600/10 to-indigo-600/10"></div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent group-hover:via-white/10 transition-all duration-500"></div>
-                    <div className="flex items-center justify-center h-full">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                          {project.title.split(" ")[0]}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Overlay with links */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-violet-900/80 via-purple-900/80 to-indigo-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <Button
-                        size="sm"
-                        className="bg-white/90 text-slate-900 hover:bg-white shadow-xl hover:shadow-2xl transition-all hover:scale-105"
-                        onClick={() => window.open(project.liveUrl, "_blank")}
-                      >
-                        <Globe className="h-4 w-4 mr-2" />
+              {/* Image */}
+              <motion.div
+                className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative rounded-2xl overflow-hidden card-elevated">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Overlay Actions */}
+                  <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <Button variant="glass" size="sm" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink size={16} />
                         Live Demo
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-white/50 dark:text-white/90 text-slate-900    hover:bg-slate-900  dark:hover:bg-white/90 hover:text-white dark:hover:text-slate-900 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all hover:scale-105"
-                        onClick={() => window.open(project.githubUrl, "_blank")}
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </Button>
-                    </div>
+                      </a>
+                    </Button>
                   </div>
                 </div>
+                
+                {/* Featured Badge */}
+                {/* {project.featured && (
+                  <div className="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-gradient-primary text-xs font-semibold text-primary-foreground">
+                    Featured
+                  </div>
+                )} */}
+              </motion.div>
 
-                {/* Project Details */}
-                <div className="lg:w-1/2 p-6 sm:p-8">
-                  <CardHeader className="p-0 mb-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge
-                        variant="secondary"
-                        className="text-xs bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800"
-                      >
-                        {project.category}
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="text-xs bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 animate-pulse"
-                      >
-                        <Zap className="h-3 w-3 mr-1" />
-                        {project.status}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-xl sm:text-2xl text-slate-900 dark:text-white mb-3">
-                      {project.title}
-                    </CardTitle>
-                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </CardHeader>
-
-                  <CardContent className="p-0 space-y-6">
-                    {/* Key Features */}
-                    <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm sm:text-base">
-                        Key Features
-                      </h4>
-                      <ul className="space-y-2">
-                        {project.features.map((feature, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400"
-                          >
-                            <div className="w-1.5 h-1.5 bg-violet-500 rounded-full mt-2 flex-shrink-0"></div>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Technologies */}
-                    <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm sm:text-base">
-                        Technologies Used
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, idx) => (
-                          <Badge
-                            key={idx}
-                            variant="outline"
-                            className="text-xs bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-900/20 dark:to-indigo-900/20 border-violet-200 dark:border-violet-800 text-violet-700 dark:text-violet-300 hover:scale-105 transition-transform"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                      <Button
-                        className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-2xl transition-all flex-1 hover:scale-105 hover:-translate-y-1 relative overflow-hidden group"
-                        onClick={() => window.open(project.liveUrl, "_blank")}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        View Live Project
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="border-2 border-violet-300 dark:border-violet-600 hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:border-violet-400 dark:hover:border-violet-500 flex-1 hover:scale-105 hover:-translate-y-1 transition-all hover:shadow-lg"
-                        onClick={() => window.open(project.githubUrl, "_blank")}
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Source Code
-                      </Button>
-                    </div>
-                  </CardContent>
+              {/* Content */}
+              <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                <h3 className="font-display text-2xl md:text-3xl font-bold mb-4 group">
+                  <a href={project.liveUrl} className="inline-flex items-center gap-2 hover:text-primary transition-colors">
+                    {project.title}
+                    <ArrowUpRight size={24} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </h3>
+                
+                <p className="text-muted-foreground mb-6">{project.description}</p>
+                
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
+                
+                {/* Highlights */}
+                <ul className="space-y-2">
+                  {project.features.map((highlight) => (
+                    <li key={highlight} className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </Card>
+            </motion.div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <Card className="bg-gradient-to-r from-violet-50 via-purple-50 to-indigo-50 dark:from-violet-900/20 dark:via-purple-900/20 dark:to-indigo-900/20 border-violet-200 dark:border-violet-800 hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500">
-            <CardContent className="p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                Interested in Working Together?
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-                I'm always excited to work on new projects and collaborate with
-                innovative teams. Let's discuss how we can bring your ideas to
-                life with modern web technologies.
-              </p>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-2xl transition-all hover:scale-105 hover:-translate-y-1 relative overflow-hidden group"
-                onClick={() => {
-                  const element = document.querySelector("#contact");
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <ExternalLink className="h-4 w-4 mr-2" />
-                Get In Touch
-              </Button>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

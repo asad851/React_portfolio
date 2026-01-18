@@ -1,136 +1,127 @@
 "use client";
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Progress } from "./ui/progress";
+const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'React.js', level: 95 },
+      { name: 'Next.js', level: 90 },
+      { name: 'TypeScript', level: 88 },
+      { name: 'Redux / Redux Toolkit', level: 85 },
+      { name: 'Tailwind CSS', level: 92 },
+      { name: 'SCSS', level: 85 },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', level: 80 },
+      { name: 'Express.js', level: 78 },
+      { name: 'REST APIs', level: 85 },
+      { name: 'MongoDB', level: 75 },
+    ],
+  },
+  {
+    title: 'Tools & Others',
+    skills: [
+      { name: 'Git & GitHub', level: 90 },
+      { name: 'AWS (CI/CD)', level: 70 },
+      { name: 'Webpack', level: 75 },
+      { name: 'Agile / Scrum', level: 85 },
+    ],
+  },
+];
+
+const technologies = [
+  'React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Redux', 
+  'Tailwind CSS', 'SCSS', 'HTML5', 'CSS3', 'Node.js', 
+  'Express.js', 'MongoDB', 'Git', 'AWS', 'REST APIs',
+  'MUI', 'Bootstrap', 'Webpack', 'VS Code', 'Agile',
+];
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      category: "Frontend Technologies",
-      skills: [
-        { name: "React.js", level: 95 },
-        { name: "Next.js", level: 90 },
-        { name: "Redux/Redux Toolkit", level: 88 },
-        { name: "JavaScript/ES6+", level: 92 },
-        { name: "HTML5/CSS3", level: 90 },
-        { name: "Tailwind CSS", level: 85 },
-      ],
-    },
-    {
-      category: "UI/UX & Styling",
-      skills: [
-        { name: "Material-UI (MUI)", level: 88 },
-        { name: "SCSS/Sass", level: 85 },
-        { name: "Bootstrap", level: 82 },
-        { name: "Responsive Design", level: 92 },
-        { name: "CSS-in-JS", level: 80 },
-      ],
-    },
-    {
-      category: "Backend & Tools",
-      skills: [
-        { name: "Node.js", level: 75 },
-        { name: "Express.js", level: 70 },
-        { name: "MongoDB", level: 72 },
-        { name: "REST APIs", level: 85 },
-        { name: "Git/GitHub", level: 88 },
-        { name: "AWS CI/CD", level: 78 },
-      ],
-    },
-    {
-      category: "Development Practices",
-      skills: [
-        { name: "Component Architecture", level: 90 },
-        { name: "State Management", level: 88 },
-        { name: "Performance Optimization", level: 85 },
-        { name: "Testing", level: 75 },
-        { name: "Code Review", level: 85 },
-      ],
-    },
-  ];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
+    <section id="skills" className="py-24 md:py-32 relative bg-card/50">
+      <div className="section-container" ref={ref}>
+        {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
-            Technical Skills
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-            Technology Stack
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Comprehensive expertise in modern frontend technologies and
-            development practices
-          </p>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-primary font-medium mb-4 block"
+          >
+            My Skills
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold"
+          >
+            Technology <span className="text-gradient-primary">Stack</span>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-slate-200 dark:border-slate-700"
+        {/* Skill Bars */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {skillCategories.map((category, catIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + catIndex * 0.1 }}
+              className="card-elevated p-6 rounded-2xl"
             >
-              <CardHeader className="p-4 sm:p-6">
-                <CardTitle className="text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2">
-                  <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
-                  {category.category}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 pt-0">
-                <div className="space-y-4">
-                  {category.skills.map((skill, idx) => (
-                    <div key={idx} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                          {skill.name}
-                        </span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <Progress value={skill.level} className="h-2" />
+              <h3 className="font-display font-semibold text-xl mb-6">{category.title}</h3>
+              <div className="space-y-4">
+                {category.skills.map((skill, skillIndex) => (
+                  <div key={skill.name}>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${skill.level}%` } : {}}
+                        transition={{ duration: 1, delay: 0.4 + catIndex * 0.1 + skillIndex * 0.05 }}
+                        className="h-full bg-gradient-primary rounded-full"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* <div className="mt-12 sm:mt-16">
-          <Card className="bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-900/10 dark:to-indigo-900/10 border-violet-200 dark:border-violet-800">
-            <CardContent className="p-6 sm:p-8 text-center">
-              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white mb-4">
-                Always Learning & Growing
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6">
-                I'm constantly exploring new technologies and frameworks to stay
-                ahead of the curve. Currently diving deeper into
-                TypeScript,Python, GraphQL, and advanced React patterns.
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {[
-                  "TypeScript",
-                  "Python",
-                  "GraphQL",
-                  "Docker",
-                  "Microservices",
-                ].map((tech, idx) => (
-                  <Badge
-                    key={idx}
-                    variant="secondary"
-                    className="bg-white dark:bg-slate-800"
-                  >
-                    {tech} <span className="ml-1 text-xs">📚</span>
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div> */}
+        {/* Tech Cloud */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-3"
+        >
+          {technologies.map((tech, index) => (
+            <motion.span
+              key={tech}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.6 + index * 0.03 }}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="px-4 py-2 rounded-full glass-effect border border-border text-sm font-medium cursor-default hover:border-primary hover:text-primary transition-all"
+            >
+              {tech}
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
