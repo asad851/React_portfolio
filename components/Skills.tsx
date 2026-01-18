@@ -100,7 +100,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-12 sm:mt-16">
+        {/* <div className="mt-12 sm:mt-16">
           <Card className="bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-900/10 dark:to-indigo-900/10 border-violet-200 dark:border-violet-800">
             <CardContent className="p-6 sm:p-8 text-center">
               <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white mb-4">
@@ -130,7 +130,7 @@ const Skills = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </section>
   );
