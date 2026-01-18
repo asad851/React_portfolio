@@ -13,7 +13,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -43,18 +43,18 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed max-w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "glass-effect border-b border-border" : "bg-transparent"
         }`}
       >
-        <div className="section-container">
+        <div className="container sm:section-container">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div
               className="flex items-center gap-3 cursor-pointer group"
               onClick={() => scrollToSection("#home")}
             >
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-primary  rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110 animate-glow">
+                <div className="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-primary rounded-sm sm:rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110 animate-glow">
                   <Code2 className="h-5 w-5 text-white" />
                 </div>
                 <div className="absolute -inset-1 bg-gradient-primary  rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
@@ -65,7 +65,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-5">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.label}
