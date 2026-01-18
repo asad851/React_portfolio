@@ -47,15 +47,15 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="py-24 md:py-32 relative bg-card/50">
+    <section id="skills" className="py-16 sm:py-24 md:py-32 relative bg-card/50">
       <div className="section-container" ref={ref}>
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-primary font-medium mb-4 block"
+            className="text-primary font-medium mb-3 sm:mb-4 block text-sm sm:text-base"
           >
             My Skills
           </motion.span>
@@ -63,31 +63,31 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
           >
-            Technology <span className="text-gradient-primary">Stack</span>
+            Technologies I <span className="text-gradient-primary">Master</span>
           </motion.h2>
         </div>
 
         {/* Skill Bars */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-10 sm:mb-16">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + catIndex * 0.1 }}
-              className="card-elevated p-6 rounded-2xl"
+              className="card-elevated p-4 sm:p-6 rounded-xl sm:rounded-2xl"
             >
-              <h3 className="font-display font-semibold text-xl mb-6">{category.title}</h3>
-              <div className="space-y-4">
+              <h3 className="font-display font-semibold text-lg sm:text-xl mb-4 sm:mb-6">{category.title}</h3>
+              <div className="space-y-3 sm:space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    <div className="flex justify-between mb-1.5 sm:mb-2">
+                      <span className="text-xs sm:text-sm font-medium">{skill.name}</span>
+                      <span className="text-xs sm:text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-secondary rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={isInView ? { width: `${skill.level}%` } : {}}
@@ -107,7 +107,7 @@ const Skills = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-3"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3"
         >
           {technologies.map((tech, index) => (
             <motion.span
@@ -116,7 +116,7 @@ const Skills = () => {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: 0.6 + index * 0.03 }}
               whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 rounded-full glass-effect border border-border text-sm font-medium cursor-default hover:border-primary hover:text-primary transition-all"
+              className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass-effect border border-border text-xs sm:text-sm font-medium cursor-default hover:border-primary hover:text-primary transition-all"
             >
               {tech}
             </motion.span>

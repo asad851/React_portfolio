@@ -13,14 +13,14 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#home" },
+    // { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
@@ -36,18 +36,19 @@ const Header = () => {
       setIsMobileOpen(false);
     }
   };
+ 
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
+        // initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed max-w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "glass-effect border-b border-border" : "bg-transparent"
         }`}
       >
-        <div className="container sm:section-container">
+        <div className="container sm:section-container mx-auto">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div
               className="flex items-center gap-3 cursor-pointer group"
