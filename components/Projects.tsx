@@ -13,8 +13,9 @@ import {
   ShoppingCart,
   FileText,
   ArrowUpRight,
+  TvIcon,
 } from "lucide-react";
-import { filezone, ecom } from "../lib/images";
+import { filezone, ecom ,tvpedia} from "../lib/images";
 import Image from "next/image";
 const Projects = () => {
   const projects = [
@@ -47,6 +48,24 @@ const Projects = () => {
       category: "SaaS Platform",
       status: "Live",
     },
+     {
+      title: "Tvpedia – TV Shows & Movies Explorer",
+      description:
+        "A movie and TV show discovery web app built during the early stages of learning React. It allows users to browse, search, and explore detailed information about popular TV shows and movies using a clean and intuitive interface.",
+      image: tvpedia, 
+      liveUrl: "https://tvpedia.netlify.app/",
+      githubUrl: "https://github.com/asad851/tvpedia", 
+      tech: ["React.js", "JavaScript", "CSS", "Tailwind CSS", "Public Movie API"],
+      highlights: [
+        "Browse trending TV shows and movies",
+        "Search functionality for shows and films",
+        "Detailed view pages with ratings and descriptions",
+        "Early project demonstrating React fundamentals and API integration",
+      ],
+      icon: <TvIcon className="h-6 w-6" />,
+      category: "Entertainment",
+      status: "Live",
+    },
     {
       title: "E-Commerce Platform",
       description:
@@ -56,16 +75,19 @@ const Projects = () => {
       githubUrl: "https://github.com/asad851/e-commerce_frontend",
       tech: ["React.js", "Redux Toolkit", "tailwind css"],
       highlights: [
-        "Product catalog with advanced filtering",
-        "Secure payment processing",
-        "Order tracking and management",
+        "Product search and filtering",
+        "Add to cart functionality",
+         "Early project demonstrating React fundamentals and state management",
+        // "Secure payment processing",
+        // "Order tracking and management",
       ],
       icon: <ShoppingCart className="h-6 w-6" />,
       category: "E-Commerce",
       status: "Live",
     },
+   
   ];
- 
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
@@ -100,12 +122,12 @@ const Projects = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
               className={`grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                index % 2 === 1 ? "lg:grid-flow-dense" : ""
               }`}
             >
               {/* Image */}
               <motion.div
-                className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
+                className={`relative group ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -116,18 +138,27 @@ const Projects = () => {
                     className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   {/* Overlay Actions */}
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 sm:transform sm:translate-y-4 sm:group-hover:translate-y-0">
-                    <Button variant="glass" size="sm" className="text-xs sm:text-sm" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="glass"
+                      size="sm"
+                      className="text-xs sm:text-sm"
+                      asChild
+                    >
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink size={14} className="sm:w-4 sm:h-4" />
                         Live Demo
                       </a>
                     </Button>
                   </div>
                 </div>
-                
+
                 {/* Featured Badge */}
                 {/* {project.featured && (
                   <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-gradient-primary text-[10px] sm:text-xs font-semibold text-primary-foreground">
@@ -137,16 +168,28 @@ const Projects = () => {
               </motion.div>
 
               {/* Content */}
-              <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+              <div
+                className={
+                  index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
+                }
+              >
                 <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 group">
-                  <a href={project.liveUrl} className="inline-flex items-center gap-2 hover:text-primary transition-colors">
+                  <a
+                    href={project.liveUrl}
+                    className="inline-flex items-center gap-2 hover:text-primary transition-colors"
+                  >
                     {project.title}
-                    <ArrowUpRight size={20} className="sm:w-6 sm:h-6 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight
+                      size={20}
+                      className="sm:w-6 sm:h-6 opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                   </a>
                 </h3>
-                
-                <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6">{project.description}</p>
-                
+
+                <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6">
+                  {project.description}
+                </p>
+
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                   {project.tech.map((tech) => (
@@ -158,11 +201,14 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 {/* Highlights */}
                 <ul className="space-y-1.5 sm:space-y-2">
                   {project.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-center gap-2 text-xs sm:text-sm">
+                    <li
+                      key={highlight}
+                      className="flex items-center gap-2 text-xs sm:text-sm"
+                    >
                       <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary flex-shrink-0" />
                       {highlight}
                     </li>
