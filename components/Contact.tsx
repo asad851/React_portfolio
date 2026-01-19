@@ -121,7 +121,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-primary font-medium mb-4 block"
+            className="text-primary font-medium mb-3 sm:mb-4 block text-sm sm:text-base"
           >
             Get in Touch
           </motion.span>
@@ -129,7 +129,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
           >
             Let's Work <span className="text-gradient-primary">Together</span>
           </motion.h2>
@@ -137,7 +137,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted-foreground max-w-xl mx-auto"
+            className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base"
           >
             Have a project in mind or want to discuss opportunities? I'd love to
             hear from you.
@@ -154,7 +154,7 @@ const Contact = () => {
             <div className="space-y-6 sm:space-y-8">
               <Card className="border-slate-200 dark:border-slate-700">
                 <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-lg sm:text-xl text-slate-900 dark:text-white">
+                  <CardTitle className="font-display font-bold text-lg sm:text-xl ">
                     Contact Information
                   </CardTitle>
                 </CardHeader>
@@ -183,7 +183,7 @@ const Contact = () => {
 
               <Card className="border-slate-200 dark:border-slate-700">
                 <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-lg sm:text-xl text-slate-900 dark:text-white">
+                  <CardTitle className="font-display font-bold text-lg sm:text-xl">
                     Follow Me
                   </CardTitle>
                 </CardHeader>
@@ -205,10 +205,10 @@ const Contact = () => {
               </Card>
 
               <Card className="p-4 sm:p-6 border-slate-200  dark:border-slate-700 rounded-2xl">
-                <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                <h3 className="font-display font-bold text-lg sm:text-xl mb-2">
                   Real-Time Email Response
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-sm">
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm text-muted-foreground">
                   Send me a message through the form and receive an instant
                   auto-reply confirmation. I typically respond to all inquiries
                   within 24 hours.
@@ -225,7 +225,7 @@ const Contact = () => {
           >
             <Card className="border-slate-200 dark:border-slate-700 h-full">
               <CardHeader className="p-4 sm:p-6">
-                <CardTitle className="text-lg sm:text-xl text-slate-900 dark:text-white">
+                <CardTitle className="font-display font-bold text-lg sm:text-xl">
                   Send Me a Message
                 </CardTitle>
               </CardHeader>
@@ -233,7 +233,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 block">
+                      <label className="font-medium text-sm sm:text-base truncate text-slate-700 dark:text-slate-300 mb-2 block">
                         Name *
                       </label>
                       <Input
@@ -243,11 +243,11 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Your Name"
                         required
-                        className="border-slate-200 dark:border-slate-700"
+                        className="border-slate-200 dark:border-slate-700 text-sm sm:text-base"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 block">
+                      <label className="font-medium text-sm sm:text-base truncate text-slate-700 dark:text-slate-300 mb-2 block">
                         Email *
                       </label>
                       <Input
@@ -257,13 +257,13 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
                         required
-                        className="border-slate-200 dark:border-slate-700"
+                        className="border-slate-200 dark:border-slate-700 text-sm sm:text-base"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 block">
+                    <label className="font-medium text-sm sm:text-base truncate text-slate-700 dark:text-slate-300 mb-2 block">
                       Subject *
                     </label>
                     <Input
@@ -273,12 +273,12 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="What's this about?"
                       required
-                      className="border-slate-200 dark:border-slate-700"
+                      className="border-slate-200 dark:border-slate-700 text-sm sm:text-base"
                     />
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 block">
+                    <label className="font-medium text-sm sm:text-base truncate text-slate-700 dark:text-slate-300 mb-2 block">
                       Message *
                     </label>
                     <Textarea
@@ -288,7 +288,7 @@ const Contact = () => {
                       placeholder="Tell me about your project or opportunity..."
                       rows={5}
                       required
-                      className="border-slate-200 dark:border-slate-700 resize-none"
+                      className="border-slate-200 dark:border-slate-700 resize-none text-sm sm:text-base"
                     />
                   </div>
 

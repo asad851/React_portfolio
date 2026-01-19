@@ -8,10 +8,10 @@ const Footer = () => {
     <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-dark glass-effect border-t border-slate-200 dark:border-slate-700">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-slate-600 dark:text-slate-400 text-sm">
+          <div className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">
             © 2025 Asad Ahmed Siddiqui. All rights reserved.
           </div>
-          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm">
+          <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm">
             <span>Built with</span>
             <Heart className="h-4 w-4 text-red-500 animate-pulse" />
             <span>using Next.js & Tailwind CSS</span>
