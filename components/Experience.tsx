@@ -14,9 +14,9 @@ const Experience = () => {
   const experiences = [
     {
       type: "work",
-      title: "Freelance Fullstack Developer",
+      title: "Frontend Developer",
       company: "Self-Employed",
-      period: "Oct 2025 - Present",
+      period: "Nov 2024 - Feb 2026",
       technologies: [
         "React.js",
         "Redux",
@@ -29,15 +29,25 @@ const Experience = () => {
         "Tailwind CSS",
       ],
       description:
-        "Providing fullstack development services, building scalable web applications for diverse clients.",
-      achievements: [],
+        "Providing frontend development services, building scalable web applications for diverse clients.",
+      achievements: [
+        "Developed and maintained responsive web applications and client websites using React.js, Next.js, and modern JavaScript frameworks.",
+
+        "Delivered frontend solutions for multiple client projects across industries, ensuring high performance, scalability, and clean UI/UX.",
+
+        "Collaborated with designers, backend developers, and clients to translate business requirements into functional, user-friendly interfaces.",
+
+        "Built reusable and scalable UI components, reducing development time and improving consistency across projects.",
+
+        "Integrated REST APIs and optimized frontend performance, improving load times and user engagement.",
+      ],
     },
     {
       type: "work",
       title: "Founding Engineer (SDE-1)",
       company: "Unsuit Legal Technologies",
       location: "Remote",
-      period: "Nov 2023 - Oct 2025",
+      period: "Nov 2023 - Nov 2024",
       achievements: [
         "Architected a full-scale frontend SaaS platform using React.js, resulting in a 35% increase in onboarding efficiency for over 1,200+ legal professionals",
         "Implemented secure, multi-role authentication (admin, user, super admin), reducing unauthorized access attempts by 90% and improving compliance",
@@ -45,6 +55,7 @@ const Experience = () => {
         "Developed an advanced document management system supporting CRUD, split, and merge operations, cutting legal document handling time by 30%",
         "Optimized frontend API handling through custom React hooks, reducing redundant code by 50% and decreasing request-related bugs by 60%",
       ],
+
       description:
         "Led frontend architecture for a legal SaaS platform serving 1200+ professionals.",
       technologies: [
@@ -94,7 +105,10 @@ const Experience = () => {
   ];
 
   return (
-     <section id="experience" className="py-16 sm:py-24 md:py-32 relative bg-card/50">
+    <section
+      id="experience"
+      className="py-16 sm:py-24 md:py-32 relative bg-card/50"
+    >
       <div className="section-container" ref={ref}>
         {/* Header */}
         <div className="text-center mb-10 sm:mb-16">
@@ -112,7 +126,8 @@ const Experience = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
           >
-            Experience & <span className="text-gradient-primary">Education</span>
+            Experience &{" "}
+            <span className="text-gradient-primary">Education</span>
           </motion.h2>
         </div>
 
@@ -128,7 +143,9 @@ const Experience = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               className={`relative pl-8 sm:pl-10 md:pl-0 pb-8 sm:pb-12 last:pb-0 ${
-                index % 2 === 0 ? 'md:pr-[calc(50%+2rem)] md:text-right' : 'md:pl-[calc(50%+2rem)]'
+                index % 2 === 0
+                  ? "md:pr-[calc(50%+2rem)] md:text-right"
+                  : "md:pl-[calc(50%+2rem)]"
               }`}
             >
               {/* Timeline Dot */}
@@ -138,11 +155,19 @@ const Experience = () => {
 
               {/* Card */}
               <div className="card-elevated rounded-xl sm:rounded-2xl p-4 sm:p-6 hover-lift">
-                <div className={`flex flex-wrap items-center gap-2 mb-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                  {exp.type === 'work' ? (
-                    <Briefcase size={16} className="text-primary sm:w-[18px] sm:h-[18px]" />
+                <div
+                  className={`flex flex-wrap items-center gap-2 mb-2 ${index % 2 === 0 ? "md:justify-end" : ""}`}
+                >
+                  {exp.type === "work" ? (
+                    <Briefcase
+                      size={16}
+                      className="text-primary sm:w-[18px] sm:h-[18px]"
+                    />
                   ) : (
-                    <GraduationCap size={16} className="text-primary sm:w-[18px] sm:h-[18px]" />
+                    <GraduationCap
+                      size={16}
+                      className="text-primary sm:w-[18px] sm:h-[18px]"
+                    />
                   )}
                   <span className="text-xs sm:text-sm text-muted-foreground flex items-center gap-1">
                     <Calendar size={12} className="sm:w-[14px] sm:h-[14px]" />
@@ -150,14 +175,25 @@ const Experience = () => {
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-lg sm:text-xl mb-1">{exp.title}</h3>
-                <p className="text-primary font-medium text-sm sm:text-base mb-2 sm:mb-3">{exp.company}</p>
-                <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4">{exp.description}</p>
+                <h3 className="font-display font-bold text-lg sm:text-xl mb-1">
+                  {exp.title}
+                </h3>
+                <p className="text-primary font-medium text-sm sm:text-base mb-2 sm:mb-3">
+                  {exp.company}
+                </p>
+                <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4">
+                  {exp.description}
+                </p>
 
                 {exp.achievements.length > 0 && (
-                  <ul className={`space-y-1.5 sm:space-y-2 ${index % 2 === 0 ? 'md:text-left' : ''}`}>
+                  <ul
+                    className={`space-y-1.5 sm:space-y-2 ${index % 2 === 0 ? "md:text-left" : ""}`}
+                  >
                     {exp.achievements.map((achievement) => (
-                      <li key={achievement} className="flex items-start gap-2 text-xs sm:text-sm">
+                      <li
+                        key={achievement}
+                        className="flex items-start gap-2 text-xs sm:text-sm"
+                      >
                         <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary mt-1.5 sm:mt-2 flex-shrink-0" />
                         <span>{achievement}</span>
                       </li>

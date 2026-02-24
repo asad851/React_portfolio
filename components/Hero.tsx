@@ -131,7 +131,7 @@ const Hero = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -141,7 +141,7 @@ const Hero = () => {
             <span className="text-sm text-muted-foreground">
               Based in Dubai, UAE
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Heading */}
           <motion.h1
