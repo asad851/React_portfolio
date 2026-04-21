@@ -14,9 +14,9 @@ const Experience = () => {
   const experiences = [
     {
       type: "work",
-      title: "Frontend Developer",
+      title: "Freelance Fullstack Developer",
       company: "Self-Employed",
-      period: "Nov 2024 - Feb 2026",
+      period: "Oct 2025 - Present",
       technologies: [
         "React.js",
         "Redux",
@@ -29,25 +29,15 @@ const Experience = () => {
         "Tailwind CSS",
       ],
       description:
-        "Providing frontend development services, building scalable web applications for diverse clients.",
-      achievements: [
-        "Developed and maintained responsive web applications and client websites using React.js, Next.js, and modern JavaScript frameworks.",
-
-        "Delivered frontend solutions for multiple client projects across industries, ensuring high performance, scalability, and clean UI/UX.",
-
-        "Collaborated with designers, backend developers, and clients to translate business requirements into functional, user-friendly interfaces.",
-
-        "Built reusable and scalable UI components, reducing development time and improving consistency across projects.",
-
-        "Integrated REST APIs and optimized frontend performance, improving load times and user engagement.",
-      ],
+        "Providing fullstack development services, building scalable web applications for diverse clients.",
+      achievements: [],
     },
     {
       type: "work",
       title: "Founding Engineer (SDE-1)",
       company: "Unsuit Legal Technologies",
       location: "Remote",
-      period: "Nov 2023 - Nov 2024",
+      period: "Nov 2023 - Oct 2025",
       achievements: [
         "Architected a full-scale frontend SaaS platform using React.js, resulting in a 35% increase in onboarding efficiency for over 1,200+ legal professionals",
         "Implemented secure, multi-role authentication (admin, user, super admin), reducing unauthorized access attempts by 90% and improving compliance",
@@ -55,7 +45,6 @@ const Experience = () => {
         "Developed an advanced document management system supporting CRUD, split, and merge operations, cutting legal document handling time by 30%",
         "Optimized frontend API handling through custom React hooks, reducing redundant code by 50% and decreasing request-related bugs by 60%",
       ],
-
       description:
         "Led frontend architecture for a legal SaaS platform serving 1200+ professionals.",
       technologies: [
@@ -104,6 +93,7 @@ const Experience = () => {
     },
   ];
 
+      
   return (
     <section
       id="experience"
